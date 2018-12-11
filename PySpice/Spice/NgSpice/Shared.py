@@ -1130,7 +1130,7 @@ if ConfigInstall.OS.on_windows:
 
     ngspice_path = os.path.join(root, 'Program Files', ngspice_dirname)
     NgSpiceShared.NGSPICE_PATH = ngspice_path
-
+    # print (ngspice_path)
     # was bin_dll
     _path = os.path.join(ngspice_path, 'bin-dll', 'ngspice{}.dll')
 elif ConfigInstall.OS.on_osx:

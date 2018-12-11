@@ -35,7 +35,7 @@ print("Break frequency = {:.1f} Hz".format(break_frequency))
 
 simulator = circuit.simulator(temperature=25, nominal_temperature=25)
 analysis = simulator.ac(start_frequency=1@u_Hz, stop_frequency=1@u_MHz, number_of_points=10,  variation='dec')
-# print(analysis.out)
+print(analysis.out)
 
 #r# We plot the Bode diagram.
 
