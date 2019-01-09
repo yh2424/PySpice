@@ -31,9 +31,9 @@ C1 = 0.5
 Rt0 = 5
 
 Rs = circuit.R('s', 'in', 1, Rs0@u_Ω)
-R1 = circuit.R(1, 1, 'out', R1@u_Ω)
-C1 = circuit.C(1, 'out', circuit.gnd, C1@u_pF)
-Rt = circuit.R('t', 'out', circuit.gnd, Rt0@u_Ω )
+R1 = circuit.R(1, 1, 2, R1@u_Ω)
+C1 = circuit.C(1, 2, circuit.gnd, C1@u_pF)
+Rt = circuit.R('t', 2, circuit.gnd, Rt0@u_Ω )
 
 #r# The break frequency is given by :math:`f_c = \frac{1}{2 \pi R C}`
 
@@ -98,8 +98,8 @@ analysis = simulator.ac(start_frequency=1e8@u_Hz, stop_frequency=5e10@u_Hz, numb
 
 V1 = np.array(analysis['1'])
 I1 = np.array((analysis['in'] - analysis['1'])/Rs0)
-V2 = np.array(analysis['out'])
-I2 = np.array((analysis['out'])/Rt0)
+V2 = np.array(analysis['2'])
+I2 = np.array((analysis['2'])/Rt0)
 
 #Z0 = np.array((V1-V2)/I1)
 # Z0 = np.array((V1)/I1)

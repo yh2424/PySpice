@@ -50,61 +50,9 @@ for i in range(1, n+1):
 
 circuit.R('t', (4 * i + 1), circuit.gnd, Rt0@u_Ω )
 
-#r# The break frequency is given by :math:`f_c = \frac{1}{2 \pi R C}`
-
-# break_frequency = 1 / (2 * math.pi * float(R1.resistance * C1.capacitance))
-# print("Break frequency = {:.1f} Hz".format(break_frequency))
-#o#
 
 simulator = circuit.simulator(temperature=25, nominal_temperature=25)
 analysis = simulator.ac(start_frequency=1e8@u_Hz, stop_frequency=5e10@u_Hz, number_of_points=100,  variation='dec')
-# print(analysis.out)
-
-#r# We plot the Bode diagram.
-
-# figure = plt.figure(1, (20, 10))
-# figure = plt.figure(figsize=(6,10))
-#
-# plt.title("Bode Diagram of a Low-Pass RC Filter")
-# axes = (plt.subplot(211), plt.subplot(212))
-# bode_diagram(axes=axes,
-#              frequency=analysis.frequency,
-#
-#              gain=20*np.log10(np.absolute(analysis.out)),
-#              phase=np.angle(analysis.out, deg=False),
-#              marker='.',
-#              color='blue',
-#              linestyle='-',
-#          )
-# for axe in axes:
-#     axe.axvline(x=break_frequency, color='red')
-#
-# plt.tight_layout()
-# plt.show()
-
-
-#
-# fig = plt.figure(figsize=(8,12))
-# plt.subplot(411)
-# plt.plot(analysis.frequency, 20*np.log10(np.absolute(analysis.out)), 'o-')
-# plt.grid(True)
-# plt.ylabel('Gain (out) [dB]')
-# # plt.title(mycircuit.title + " - AC Simulation")
-#
-# plt.subplot(412)
-# plt.plot(analysis.frequency, 20*np.log10(np.absolute(analysis['1'])), 'o-')
-# plt.grid(True)
-# plt.ylabel('Gain (out/in) [dB]')
-#
-# plt.subplot(413)
-# plt.plot(analysis.frequency, 20*np.log10(np.absolute(analysis.out)/np.absolute(analysis['1'])), 'o-')
-# plt.grid(True)
-# plt.ylabel('Gain (out/in) [dB]')
-#
-# plt.xlabel('Frequency [Hz]')
-# fig.savefig('ac_plot.png')
-# plt.show()
-
 
 
 #f# save_figure('figure', 'low-pass-rc-filter-bode-diagram.png')
